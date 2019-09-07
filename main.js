@@ -31,7 +31,7 @@ const studentCardPrint = (people) => {
                 <div class="card-body">
                     <h5 class="card-title">${person.name}</h5>
                     <p class="card-text">${person.house}</p>
-                    <a href="#" class="btn btn-primary expelButton">Expel</a>
+                    <a href="#" class="btn btn-primary expelButton">Expel</a> 
                     <a href="#" class="btn btn-primary" class="expelButton">Expel</a>
                 </div>
             </div> 
@@ -66,13 +66,6 @@ const expelClick = (e) => {
             students.splice(i, 1);
         }
         // print the new set of students array after splicing
-    const expelStudent = e.target.parentElement.children[0].innerHTML;
-    console.log(expelStudent);
-    for (let i=0; i < students.length; i++) {
-        console.log(students[i], expelStudent);
-        if (students[i].name === expelStudent) {
-            students.splice(i, 1);
-        }
         studentCardPrint(students);
     }
 }
