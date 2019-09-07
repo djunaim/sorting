@@ -14,6 +14,7 @@ document.getElementById('sortButton').addEventListener('click', sortClick);
 
 const printToDOM = (divID, toPrint) => {
     document.getElementById(divID).innerHTML = toPrint;
+    // have to be here once cards are printed to DOM so event listener can have something to attach to
     expel();
 } 
 
@@ -30,7 +31,7 @@ const studentCardPrint = (people) => {
                 <div class="card-body">
                     <h5 class="card-title">${person.name}</h5>
                     <p class="card-text">${person.house}</p>
-                    <a href="#" class="btn btn-primary" class="expelButton">Expel</a>
+                    <a href="#" class="btn btn-primary expelButton">Expel</a>
                 </div>
             </div> 
         </div>       
@@ -55,13 +56,15 @@ const studentSortClick = (e) => {
 }
 
 const expelClick = (e) => {
+    // going into target, getting the innerHTML of the children at position 0 of the parentElement and assigning value to expelStudent
     const expelStudent = e.target.parentElement.children[0].innerHTML;
-    console.log(expelStudent);
     for (let i=0; i < students.length; i++) {
-        console.log(students[i], expelStudent);
+        // if the name of the student at position i is equal to expelStudent, then run function
         if (students[i].name === expelStudent) {
+            // removes that object at position i
             students.splice(i, 1);
         }
+        // print the new set of students array after splicing
         studentCardPrint(students);
     }
 }
