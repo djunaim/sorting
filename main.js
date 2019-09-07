@@ -26,12 +26,13 @@ const studentCardPrint = (people) => {
     for (let i=0; i < people.length; i++) {
         const person = people[i];
         domString += `
-        <div class="col-sm-4">
+        <div class="col-sm-4" id="${person.studentID}">
             <div class="card studentCard">
                 <div class="card-body">
                     <h5 class="card-title">${person.name}</h5>
                     <p class="card-text">${person.house}</p>
                     <a href="#" class="btn btn-primary expelButton">Expel</a>
+                    <a href="#" class="btn btn-primary" class="expelButton">Expel</a>
                 </div>
             </div> 
         </div>       
@@ -65,6 +66,13 @@ const expelClick = (e) => {
             students.splice(i, 1);
         }
         // print the new set of students array after splicing
+    const expelStudent = e.target.parentElement.children[0].innerHTML;
+    console.log(expelStudent);
+    for (let i=0; i < students.length; i++) {
+        console.log(students[i], expelStudent);
+        if (students[i].name === expelStudent) {
+            students.splice(i, 1);
+        }
         studentCardPrint(students);
     }
 }
@@ -73,6 +81,7 @@ const expelClick = (e) => {
 document.getElementById('studentSortButton').addEventListener('click', studentSortClick);
 const expel = () => {
     const buttonExpel = document.getElementsByClassName('expelButton');
+    console.log(buttonExpel);
     for (let i=0; i<buttonExpel.length; i++) {
         const clickedThis = buttonExpel[i];
         clickedThis.addEventListener('click', expelClick);
