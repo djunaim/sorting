@@ -5,3 +5,11 @@ body {
 #firstYear {
     border: 2px solid black;
 }
+
+.studentCard {
+    border: 2px solid black;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+}
