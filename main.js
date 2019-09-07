@@ -13,7 +13,7 @@ const sortClick = (e) => {
 document.getElementById('sortButton').addEventListener('click', sortClick);
 
 const printToDOM = (divID, toPrint) => {
-    document.getElementById(divID).innerHTML += toPrint;
+    document.getElementById(divID).innerHTML = toPrint;
 } 
 // assign value of input type with id 'nameInput' to variable studentsNames  
 
@@ -23,8 +23,9 @@ const students = [];
 
 
 const studentCardPrint = (people) => {
-    const person = people[0];
     let domString = '<div class="row">';
+    for (let i=0; i < people.length; i++) {
+        const person = people[i];
         domString += `
         <div class="col-sm-6">
             <div class="card">
@@ -34,9 +35,9 @@ const studentCardPrint = (people) => {
                 <a href="#" class="btn btn-primary">Expel</a>
             </div>
         </div>
-        `
+        ` 
+    }      
     domString += '</div>';
-    students.push(domString);
     printToDOM('houseStudent', domString);
 }
 
