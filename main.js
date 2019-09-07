@@ -15,9 +15,6 @@ document.getElementById('sortButton').addEventListener('click', sortClick);
 const printToDOM = (divID, toPrint) => {
     document.getElementById(divID).innerHTML = toPrint;
 } 
-// assign value of input type with id 'nameInput' to variable studentsNames  
-
-
 
 const students = [];
 
@@ -27,14 +24,15 @@ const studentCardPrint = (people) => {
     for (let i=0; i < people.length; i++) {
         const person = people[i];
         domString += `
-        <div class="col-sm-6">
-            <div class="card">
+        <div class="col-sm-4">
+            <div class="card studentCard">
                 <div class="card-body">
-                <h5 class="card-title">${person.name}</h5>
-                <p class="card-text">${person.house}</p>
-                <a href="#" class="btn btn-primary">Expel</a>
-            </div>
-        </div>
+                    <h5 class="card-title">${person.name}</h5>
+                    <p class="card-text">${person.house}</p>
+                    <a href="#" class="btn btn-primary">Expel</a>
+                </div>
+            </div> 
+        </div>       
         ` 
     }      
     domString += '</div>';
@@ -44,11 +42,16 @@ const studentCardPrint = (people) => {
 
 const studentSortClick = (e) => {
     const studentSort = e.target.id;
+    const house = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
     if (studentSort === 'studentSortButton') {
+        // assign value of input type with id 'nameInput' to variable studentsNames 
         const studentName = document.getElementById('nameInput').value; 
-        students.push({name: studentName, house: ''});
-    }
+        const randomNum = Math.floor(Math.random() * 4 );
+        const randomHouse = house[randomNum]
+        students.push({name: studentName, house: randomHouse});
+        }   
     studentCardPrint(students);
-}
+    }
+    
 
 document.getElementById('studentSortButton').addEventListener('click', studentSortClick);
