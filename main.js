@@ -14,7 +14,7 @@ document.getElementById('sortButton').addEventListener('click', sortClick);
 
 const printToDOM = (divID, toPrint) => {
     document.getElementById(divID).innerHTML = toPrint;
-    // have to be here once cards are printed to DOM so event listener can have something to attach to
+    // have to be here once cards are printed to DOM so event listener can have something to attach to. And that the expel function only runs once there are carsd printed to the DOM
     expel();
 } 
 
@@ -47,11 +47,14 @@ const studentSortClick = (e) => {
     const studentSort = e.target.id;
     const house = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
     if (studentSort === 'studentSortButton') {
-        // assign value of input type with id 'nameInput' to variable studentsNames 
+        // assign value of input with id 'nameInput' to variable studentsNames 
         const studentName = document.getElementById('nameInput').value; 
+        // have Math.random multiplied by 4 (for 4 houses) to get a random number between 0-3 (because positions of house array are 0-3) and round number to lowest whole number with Math.floor and assign value to variable randomNum 
         const randomNum = Math.floor(Math.random() * 4 );
+        // use randomNum to get position of house at that point and assign value to variable randomHouse
         const randomHouse = house[randomNum];
-        students.push({name: studentName, house: randomHouse, studentID: students.length + 1 });
+        // add object to blank students array with .push method. 
+        students.push({name: studentName, house: randomHouse});
         } 
     studentCardPrint(students);  
 }
@@ -72,11 +75,16 @@ const expelClick = (e) => {
     
 
 document.getElementById('studentSortButton').addEventListener('click', studentSortClick);
+
+// create expel function to house expelButton so function will not run before there aren't any cards on the DOM yet
 const expel = () => {
+    // get all elements with class name 'expelButton' and assign to varible buttonExpel
     const buttonExpel = document.getElementsByClassName('expelButton');
-    console.log(buttonExpel);
+    // create for loop that goes through all cards with the class name 'expelButton'
     for (let i=0; i<buttonExpel.length; i++) {
+        // because getElementsByClassName returns an array of objects, need to assign position of where the buttonExpel is clicked to a variable
         const clickedThis = buttonExpel[i];
+        // add a click event listener to the expel button that whenever it is clicked, run function expelClick
         clickedThis.addEventListener('click', expelClick);
     }
 }
