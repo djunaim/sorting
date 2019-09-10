@@ -55,7 +55,7 @@ const studentSortClick = (e) => {
         // add object to blank students array with .push method. 
         students.push({name: studentName, house: randomHouse});
         } 
-    studentCardPrint(students);  
+    studentCardPrint(students); 
 }
 
 const expelClick = (e) => {
