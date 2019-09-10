@@ -1,5 +1,6 @@
 body {
-    background-color: aliceblue;
+    background-image: url(https://sites.fas.harvard.edu/~memhall/img/annen2.jpg);
+    background-size: cover;
 }
 
 #firstYear {
@@ -12,4 +13,8 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 300px;
+}
+
+img {
+    width: 100%;
 }
