@@ -15,6 +15,6 @@ body {
     width: 300px;
 }
 
-img {
-    width: 100%;
+#firstYear {
+    background-color: aliceblue;
 }
