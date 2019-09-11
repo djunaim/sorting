@@ -44,18 +44,21 @@ const studentCardPrint = (people) => {
 
 const studentSortClick = (e) => {
     const studentSort = e.target.id;
+    // assign value of input with id 'nameInput' to variable studentsNames 
+    const studentName = document.getElementById('nameInput').value;
     const house = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
-    if (studentSort === 'studentSortButton') {
-        // assign value of input with id 'nameInput' to variable studentsNames 
-        const studentName = document.getElementById('nameInput').value; 
+    if (studentSort === 'studentSortButton' && studentName !== '') {  
         // have Math.random multiplied by 4 (for 4 houses) to get a random number between 0-3 (because positions of house array are 0-3) and round number to lowest whole number with Math.floor and assign value to variable randomNum 
         const randomNum = Math.floor(Math.random() * 4 );
         // use randomNum to get position of house at that point and assign value to variable randomHouse
         const randomHouse = house[randomNum];
         // add object to blank students array with .push method. 
         students.push({name: studentName, house: randomHouse});
-        } 
-    studentCardPrint(students); 
+        studentCardPrint(students);
+        } else {
+            checkForm();  
+        }      
+     
 }
 
 const expelClick = (e) => {
@@ -86,4 +89,11 @@ const expel = () => {
         // add a click event listener to the expel button that whenever it is clicked, run function expelClick
         clickedThis.addEventListener('click', expelClick);
     }
+}
+
+const inputTruth = document.getElementById('nameInput');
+const checkForm = () => {
+    if (inputTruth.value === '') {
+        alert('Have to type in a name');
+    } 
 }
