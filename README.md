@@ -4,7 +4,13 @@
 Use application to sort students into different harry potter houses. Also, have the ability to expel students from the houses.
 
 ## Screenshots
+![sorting hat homepage preview](https://raw.githubusercontent.com/djunaim/sorting/master/screenshots/image.PNG)
 
+![start sorting preview](https://raw.githubusercontent.com/djunaim/sorting/master/screenshots/image2.PNG)
+
+![sorted students preview](https://raw.githubusercontent.com/djunaim/sorting/master/screenshots/image3.PNG)
+
+![expel student preview](https://raw.githubusercontent.com/djunaim/sorting/master/screenshots/image4.PNG)
 
 ## How to run
 * Clone down this project
